@@ -1544,6 +1544,7 @@ body.role-admin .admin-only { display: initial; }
      ============================================================ -->
 <div class="app" id="mainApp">
     <!-- ====== SIDEBAR ====== -->
+    <div class="sidebar-backdrop" id="sidebarBackdrop" onclick="toggleSidebar()"></div>
     <aside class="sidebar" id="sidebar">
         <div class="sidebar-header">
             <div class="logo-sm"><i class="fas fa-pills"></i></div>
@@ -2417,10 +2418,14 @@ function navigateTo(page) {
     
     // Close sidebar on mobile
     document.getElementById('sidebar').classList.remove('open');
+    const backdrop = document.getElementById('sidebarBackdrop');
+    if (backdrop) backdrop.classList.remove('active');
 }
 
 function toggleSidebar() {
     document.getElementById('sidebar').classList.toggle('open');
+    const backdrop = document.getElementById('sidebarBackdrop');
+    if (backdrop) backdrop.classList.toggle('active');
 }
 
 function toggleTheme() {
