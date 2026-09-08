@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PharmFlow Pro - نظام إدارة مخازن الأدوية</title>
-    <meta name="description" content="نظام متكامل لإدارة مخازن الأدوية البشرية ومستحضرات التجميل">
+    <title>Mastery Pharma Group - نظام إدارة مخازن الأدوية</title>
+    <meta name="description" content="Mastery Pharma Group - Better health, better life. نظام متكامل لإدارة مخازن الأدوية البشرية ومستحضرات التجميل">
+    <link rel="icon" type="image/jpeg" href="logo.jpg">
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
@@ -171,41 +172,54 @@ body::before {
 
 .login-logo {
     text-align: center;
-    margin-bottom: 35px;
+    margin-bottom: 28px;
 }
 
-.login-logo .logo-icon {
-    width: 80px; height: 80px;
-    background: linear-gradient(135deg, var(--primary), var(--accent));
-    border-radius: 20px;
+.login-brand-card {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    font-size: 36px;
-    color: white;
+    background: #ffffff;
+    padding: 10px 18px;
+    border-radius: 18px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35), 0 0 25px rgba(102, 126, 234, 0.35);
     margin-bottom: 15px;
-    box-shadow: 0 8px 32px rgba(102, 126, 234, 0.4);
-    animation: pulse 2s ease-in-out infinite;
+    border: 2px solid rgba(255, 255, 255, 0.85);
+    animation: floatLogo 4s ease-in-out infinite;
+    transition: transform 0.3s ease;
+}
+.login-brand-card:hover {
+    transform: scale(1.03);
 }
 
-@keyframes pulse {
-    0%, 100% { box-shadow: 0 8px 32px rgba(102, 126, 234, 0.4); }
-    50% { box-shadow: 0 8px 48px rgba(102, 126, 234, 0.6); }
+@keyframes floatLogo {
+    0%, 100% { transform: translateY(0); box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35), 0 0 25px rgba(102, 126, 234, 0.35); }
+    50% { transform: translateY(-6px); box-shadow: 0 16px 36px rgba(0, 0, 0, 0.45), 0 0 38px rgba(102, 126, 234, 0.5); }
+}
+
+.login-brand-img {
+    width: 220px;
+    max-width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 8px;
 }
 
 .login-logo h1 {
-    font-size: 28px;
+    font-size: 25px;
     font-weight: 800;
     background: linear-gradient(135deg, var(--primary), var(--secondary));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+    letter-spacing: -0.3px;
 }
 
 .login-logo p {
     color: var(--text-secondary);
-    font-size: 14px;
-    margin-top: 5px;
+    font-size: 13px;
+    margin-top: 4px;
+    font-weight: 500;
 }
 
 .form-group {
@@ -356,21 +370,34 @@ body::before {
 }
 
 .sidebar-header {
-    padding: 20px;
+    padding: 18px 14px;
     text-align: center;
     border-bottom: 1px solid var(--border-color);
 }
 
-.sidebar-header .logo-sm {
-    width: 50px; height: 50px;
-    background: linear-gradient(135deg, var(--primary), var(--accent));
-    border-radius: 14px;
+.sidebar-brand-card {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    font-size: 22px;
-    color: white;
+    background: #ffffff;
+    padding: 7px 12px;
+    border-radius: 14px;
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.25), 0 0 15px rgba(102, 126, 234, 0.2);
     margin-bottom: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.9);
+    transition: transform 0.3s ease;
+    max-width: 190px;
+}
+.sidebar-brand-card:hover {
+    transform: scale(1.04);
+}
+
+.sidebar-brand-img {
+    width: 100%;
+    max-width: 160px;
+    height: auto;
+    display: block;
+    border-radius: 6px;
 }
 
 .close-sidebar-btn {
@@ -388,12 +415,13 @@ body::before {
 .close-sidebar-btn:hover { color: var(--danger); }
 
 .sidebar-header h2 {
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 700;
     background: linear-gradient(135deg, var(--primary), var(--secondary));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+    margin-bottom: 3px;
 }
 
 .sidebar-header .user-badge {
@@ -403,7 +431,7 @@ body::before {
     border-radius: 20px;
     font-size: 12px;
     color: var(--primary-light);
-    margin-top: 5px;
+    margin-top: 4px;
 }
 
 .sidebar-nav { flex: 1; padding: 15px 10px; }
@@ -1929,12 +1957,422 @@ table tr:last-child td { border-bottom: none; }
     body { background: white; color: #333; }
 }
 
+/* ============ SPLASH / OPENING SCREEN ============ */
+.splash-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #060919 !important;
+    background: radial-gradient(circle at center, #12183d 0%, #060919 100%) !important;
+    z-index: 999999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    transition: opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1), transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.splash-screen.fade-out {
+    opacity: 0;
+    transform: scale(1.03);
+    pointer-events: none;
+}
+
+.splash-close-btn {
+    position: absolute;
+    top: 25px;
+    left: 25px;
+    background: rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    color: #ffffff;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 10;
+}
+.splash-close-btn:hover {
+    background: rgba(225, 112, 85, 0.85);
+    transform: rotate(90deg) scale(1.1);
+}
+
+.splash-glow {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(120px);
+    pointer-events: none;
+}
+.splash-glow.glow-1 {
+    width: 500px;
+    height: 500px;
+    background: rgba(102, 126, 234, 0.25);
+    top: -120px;
+    right: -120px;
+    animation: floatGlow 8s ease-in-out infinite alternate;
+}
+.splash-glow.glow-2 {
+    width: 480px;
+    height: 480px;
+    background: rgba(192, 57, 43, 0.2);
+    bottom: -100px;
+    left: -100px;
+    animation: floatGlow 10s ease-in-out infinite alternate-reverse;
+}
+@keyframes floatGlow {
+    0% { transform: translate(0, 0) scale(1); }
+    100% { transform: translate(40px, 30px) scale(1.15); }
+}
+
+.splash-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    max-width: 520px;
+    width: 90%;
+    padding: 30px 20px;
+    animation: splashAppear 0.8s ease-out;
+}
+@keyframes splashAppear {
+    from { opacity: 0; transform: translateY(30px) scale(0.95); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.splash-logo-container {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 22px;
+}
+
+.splash-orbit-ring {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 320px;
+    height: 320px;
+    margin-top: -160px;
+    margin-left: -160px;
+    border: 2px dashed rgba(102, 126, 234, 0.4);
+    border-radius: 50%;
+    animation: rotateOrbit 16s linear infinite;
+    pointer-events: none;
+}
+.splash-orbit-ring::after {
+    content: '';
+    position: absolute;
+    top: 15px;
+    left: 50%;
+    width: 14px;
+    height: 14px;
+    background: #00d2ff;
+    border-radius: 50%;
+    box-shadow: 0 0 14px #00d2ff;
+}
+@keyframes rotateOrbit {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.splash-logo-card {
+    position: relative;
+    background: #ffffff;
+    padding: 14px 24px;
+    border-radius: 22px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.55), 0 0 40px rgba(102, 126, 234, 0.4);
+    border: 3px solid rgba(255, 255, 255, 0.95);
+    animation: pulseLogoCard 3s ease-in-out infinite alternate;
+}
+@keyframes pulseLogoCard {
+    0% { transform: scale(1); box-shadow: 0 20px 50px rgba(0, 0, 0, 0.55), 0 0 40px rgba(102, 126, 234, 0.4); }
+    100% { transform: scale(1.03); box-shadow: 0 25px 60px rgba(0, 0, 0, 0.65), 0 0 50px rgba(0, 210, 255, 0.55); }
+}
+
+.splash-logo-img {
+    width: 260px;
+    max-width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 8px;
+}
+
+.splash-title {
+    font-size: 30px;
+    font-weight: 900;
+    color: #ffffff;
+    letter-spacing: -0.5px;
+    margin-bottom: 5px;
+    text-shadow: 0 4px 20px rgba(0,0,0,0.5);
+}
+
+.splash-slogan {
+    font-size: 16px;
+    font-weight: 600;
+    color: #00d2ff;
+    letter-spacing: 0.5px;
+    margin-bottom: 10px;
+    text-shadow: 0 0 10px rgba(0, 210, 255, 0.4);
+}
+
+.splash-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 5px 16px;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 20px;
+    font-size: 13px;
+    color: #e2e8f0;
+    margin-bottom: 22px;
+}
+
+.splash-progress-container {
+    width: 100%;
+    height: 7px;
+    background: rgba(255, 255, 255, 0.12);
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 12px;
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.4);
+}
+
+.splash-progress-bar {
+    width: 0%;
+    height: 100%;
+    background: linear-gradient(90deg, #667eea, #00d2ff, #764ba2);
+    border-radius: 10px;
+    transition: width 0.15s ease;
+    box-shadow: 0 0 12px rgba(0, 210, 255, 0.8);
+}
+
+.splash-status-text {
+    font-size: 13px;
+    color: #94a3b8;
+    margin-bottom: 18px;
+    min-height: 20px;
+}
+
+.splash-skip-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 24px;
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.85), rgba(118, 75, 162, 0.85));
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 30px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    font-family: 'Cairo', sans-serif;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+}
+.splash-skip-btn:hover {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.5);
+}
+
+/* ============ HEADER BRAND BADGE ============ */
+.header-brand-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 5px 12px;
+    background: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.15);
+    border: 1px solid rgba(0,0,0,0.06);
+    margin-left: 10px;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+.header-brand-badge:hover {
+    transform: scale(1.03);
+}
+.header-brand-img {
+    height: 28px;
+    width: auto;
+    display: block;
+}
+.header-brand-text {
+    font-size: 13px;
+    font-weight: 800;
+    color: #1a202c;
+    white-space: nowrap;
+}
+@media (max-width: 600px) {
+    .header-brand-text { display: none; }
+    .header-brand-badge { padding: 4px 8px; }
+    .header-brand-img { height: 24px; }
+}
+
+/* ============ DASHBOARD HERO BANNER ============ */
+.dashboard-hero-banner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    background: linear-gradient(135deg, rgba(26, 31, 58, 0.95), rgba(17, 22, 56, 0.95));
+    backdrop-filter: blur(16px);
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-xl);
+    padding: 22px 28px;
+    margin-bottom: 24px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: var(--shadow-md), 0 0 25px rgba(102, 126, 234, 0.15);
+}
+.light-mode .dashboard-hero-banner {
+    background: linear-gradient(135deg, #ffffff, #f8fafc);
+    border-color: rgba(0, 0, 0, 0.08);
+}
+.dashboard-hero-banner::before {
+    content: '';
+    position: absolute;
+    top: -50px;
+    right: -50px;
+    width: 180px;
+    height: 180px;
+    background: radial-gradient(circle, rgba(102, 126, 234, 0.2), transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+}
+.hero-logo-card {
+    background: #ffffff;
+    padding: 10px 18px;
+    border-radius: 16px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.85);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+.hero-logo-img {
+    height: 60px;
+    width: auto;
+    max-width: 170px;
+    object-fit: contain;
+    display: block;
+}
+.hero-main-info {
+    flex: 1;
+}
+.hero-pill-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    background: rgba(0, 184, 148, 0.15);
+    color: var(--success);
+    margin-bottom: 6px;
+}
+.hero-main-info h2 {
+    font-size: 22px;
+    font-weight: 800;
+    color: var(--text-primary);
+    margin-bottom: 4px;
+}
+.hero-main-info h2 .highlight {
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+.hero-main-info p {
+    font-size: 14px;
+    color: var(--text-secondary);
+}
+.hero-date-badge {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 4px;
+    padding: 12px 18px;
+    background: var(--bg-glass);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border-color);
+    flex-shrink: 0;
+}
+.hero-date-badge .time-now {
+    font-size: 20px;
+    font-weight: 800;
+    color: var(--primary-light);
+    font-family: monospace;
+}
+.hero-date-badge .date-now {
+    font-size: 12px;
+    color: var(--text-secondary);
+}
+@media (max-width: 768px) {
+    .dashboard-hero-banner {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+        padding: 18px;
+    }
+    .hero-date-badge {
+        align-self: stretch;
+        align-items: center;
+    }
+}
+
+/* Sidebar credit */
+.sidebar-brand-credit {
+    text-align: center;
+    padding-top: 10px;
+    font-size: 11px;
+    color: var(--text-muted);
+    letter-spacing: 0.5px;
+}
+
 /* ============ ADMIN ONLY ============ */
 .admin-only { display: none; }
 body.role-admin .admin-only { display: initial; }
     </style>
 </head>
 <body>
+<!-- ============ SPLASH / OPENING SCREEN ============ -->
+<div class="splash-screen" id="splashScreen">
+    <button class="splash-close-btn" onclick="dismissSplash()" title="إغلاق"><i class="fas fa-times"></i></button>
+    <div class="splash-glow glow-1"></div>
+    <div class="splash-glow glow-2"></div>
+    <div class="splash-content">
+        <div class="splash-logo-container">
+            <div class="splash-orbit-ring"></div>
+            <div class="splash-logo-card">
+                <img src="logo.jpg" alt="Mastery Pharma Group" class="splash-logo-img">
+            </div>
+        </div>
+        <h1 class="splash-title">Mastery Pharma Group</h1>
+        <div class="splash-slogan">Better health, better life</div>
+        <div class="splash-badge"><i class="fas fa-cubes"></i> نظام إدارة مخازن الأدوية المتكامل</div>
+        
+        <div class="splash-progress-container">
+            <div class="splash-progress-bar" id="splashProgress"></div>
+        </div>
+        <div class="splash-status-text" id="splashStatus">جاري تهيئة النظام...</div>
+
+        <button class="splash-skip-btn" id="splashSkipBtn" onclick="dismissSplash()">
+            <span>دخول النظام</span>
+            <i class="fas fa-arrow-left"></i>
+        </button>
+    </div>
+</div>
+
 <!-- ============ TOAST CONTAINER ============ -->
 <div class="toast-container" id="toastContainer"></div>
 
@@ -1950,9 +2388,11 @@ body.role-admin .admin-only { display: initial; }
 <div class="login-screen" id="loginScreen">
     <div class="login-card">
         <div class="login-logo">
-            <div class="logo-icon"><i class="fas fa-pills"></i></div>
-            <h1>PharmFlow Pro</h1>
-            <p>نظام إدارة مخازن الأدوية البشرية</p>
+            <div class="login-brand-card">
+                <img src="logo.jpg" alt="Mastery Pharma Group" class="login-brand-img">
+            </div>
+            <h1>Mastery Pharma Group</h1>
+            <p>نظام إدارة مخازن الأدوية | Better health, better life</p>
         </div>
         <form id="loginForm" onsubmit="handleLogin(event)">
             <div class="form-group">
@@ -1987,8 +2427,10 @@ body.role-admin .admin-only { display: initial; }
     <aside class="sidebar" id="sidebar">
         <div class="sidebar-header" style="position: relative;">
             <button class="close-sidebar-btn" onclick="toggleSidebar()"><i class="fas fa-times"></i></button>
-            <div class="logo-sm"><i class="fas fa-pills"></i></div>
-            <h2>PharmFlow Pro</h2>
+            <div class="sidebar-brand-card">
+                <img src="logo.jpg" alt="Mastery Pharma Group" class="sidebar-brand-img">
+            </div>
+            <h2>Mastery Pharma Group</h2>
             <div class="user-badge" id="sidebarRole">مدير المخزن</div>
         </div>
         <nav class="sidebar-nav">
@@ -2042,6 +2484,10 @@ body.role-admin .admin-only { display: initial; }
             </div>
         </nav>
         <div class="sidebar-footer">
+            <button class="theme-toggle" onclick="showSplashScreen()" style="margin-bottom:6px;" title="استعراض شاشة الافتتاحية">
+                <i class="fas fa-play-circle" style="color:var(--secondary);"></i>
+                <span>عرض الافتتاحية</span>
+            </button>
             <button class="theme-toggle" onclick="toggleTheme()">
                 <i class="fas fa-moon" id="themeIcon"></i>
                 <span id="themeText">الوضع الفاتح</span>
@@ -2050,6 +2496,7 @@ body.role-admin .admin-only { display: initial; }
                 <i class="fas fa-sign-out-alt"></i>
                 تسجيل الخروج
             </button>
+            <div class="sidebar-brand-credit">Mastery Pharma Group &copy; 2025</div>
         </div>
     </aside>
 
@@ -2061,6 +2508,10 @@ body.role-admin .admin-only { display: initial; }
                 <button class="mobile-menu-btn" onclick="toggleSidebar()">
                     <i class="fas fa-bars"></i>
                 </button>
+                <div class="header-brand-badge" onclick="showSplashScreen()" title="Mastery Pharma Group - انقر لعرض الافتتاحية">
+                    <img src="logo.jpg" alt="Mastery Pharma Group" class="header-brand-img">
+                    <span class="header-brand-text">Mastery Pharma</span>
+                </div>
                 <div class="header-title">
                     <h2 id="pageTitle">لوحة التحكم</h2>
                     <p id="pageDate"></p>
@@ -2086,6 +2537,22 @@ body.role-admin .admin-only { display: initial; }
 
 <!-- ==================== DASHBOARD ==================== -->
 <section class="page-section active" id="page-dashboard">
+    <!-- Hero Welcome Banner -->
+    <div class="dashboard-hero-banner">
+        <div class="hero-logo-card">
+            <img src="logo.jpg" alt="Mastery Pharma Group" class="hero-logo-img">
+        </div>
+        <div class="hero-main-info">
+            <div class="hero-pill-badge"><i class="fas fa-shield-alt"></i> نظام إدارة مخازن الأدوية المتكامل</div>
+            <h2>مرحباً بك في نظام <span class="highlight">Mastery Pharma Group</span></h2>
+            <p><i class="fas fa-heartbeat" style="color:#00d2ff;"></i> Better health, better life — منصة متابعة المخزون والمبيعات والفواتير</p>
+        </div>
+        <div class="hero-date-badge">
+            <div class="time-now" id="heroLiveClock">--:--:--</div>
+            <div class="date-now" id="heroLiveDate">Mastery Pharma Group</div>
+        </div>
+    </div>
+
     <div class="stats-grid" id="dashboardStats"></div>
     <div class="charts-grid">
         <div class="card">
@@ -2512,11 +2979,30 @@ body.role-admin .admin-only { display: initial; }
 
 <!-- ==================== SETTINGS ==================== -->
 <section class="page-section" id="page-settings">
+    <!-- Brand Identity Card -->
+    <div class="card" style="margin-bottom:20px;">
+        <div class="card-header"><h3><i class="fas fa-certificate"></i> هُوية وشعار النظام الرسمية</h3></div>
+        <div class="card-body">
+            <div style="display:flex;align-items:center;gap:24px;flex-wrap:wrap;">
+                <div style="background:#ffffff;padding:12px 20px;border-radius:16px;box-shadow:0 6px 20px rgba(0,0,0,0.15);border:1px solid rgba(0,0,0,0.06);max-width:240px;">
+                    <img src="logo.jpg" alt="Mastery Pharma Group" style="width:100%;height:auto;display:block;border-radius:6px;">
+                </div>
+                <div style="flex:1;min-width:240px;">
+                    <h4 style="font-size:20px;font-weight:800;color:var(--text-primary);margin-bottom:6px;">Mastery Pharma Group</h4>
+                    <p style="font-size:14px;color:var(--secondary);font-weight:600;margin-bottom:10px;"><i class="fas fa-quote-right"></i> Better health, better life</p>
+                    <p style="font-size:13px;color:var(--text-secondary);line-height:1.7;">الشعار الرسمي المعتمد لمخازن ومستودعات أدوية Mastery Pharma Group. الهوية مدمجة في شاشة الافتتاحية وشاشة الدخول والشريط الجانبي ولوحة التحكم.</p>
+                    <div style="margin-top:14px;">
+                        <button class="btn btn-outline btn-sm" onclick="showSplashScreen()"><i class="fas fa-play-circle" style="color:var(--secondary);"></i> استعراض شاشة الافتتاحية</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="card">
         <div class="card-header"><h3><i class="fas fa-cog"></i> إعدادات النظام</h3></div>
         <div class="card-body">
             <div class="form-grid">
-                <div class="form-group"><label>اسم المخزن / الصيدلية</label><div class="input-wrapper"><input type="text" id="settingStoreName" placeholder="اسم المخزن"><i class="fas fa-store"></i></div></div>
+                <div class="form-group"><label>اسم المخزن / الصيدلية</label><div class="input-wrapper"><input type="text" id="settingStoreName" placeholder="Mastery Pharma Group"><i class="fas fa-store"></i></div></div>
                 <div class="form-group"><label>الهاتف</label><div class="input-wrapper"><input type="text" id="settingStorePhone" placeholder="رقم الهاتف"><i class="fas fa-phone"></i></div></div>
                 <div class="form-group full-width"><label>العنوان</label><div class="input-wrapper"><input type="text" id="settingStoreAddress" placeholder="العنوان"><i class="fas fa-map-marker-alt"></i></div></div>
                 <div class="form-group"><label>العملة</label><select id="settingCurrency"><option value="EGP">جنيه مصري (EGP)</option><option value="SAR">ريال سعودي (SAR)</option><option value="AED">درهم إماراتي (AED)</option><option value="USD">دولار أمريكي (USD)</option></select></div>
@@ -2690,8 +3176,94 @@ let currentReportType = 'sales';
 let monthlySalesChart = null;
 let categoriesChart = null;
 
+// ===================== SPLASH SCREEN & HERO CLOCK =====================
+let splashProgressInterval = null;
+
+function initSplashScreen(isManual = false) {
+    const splash = document.getElementById('splashScreen');
+    const progressBar = document.getElementById('splashProgress');
+    const statusText = document.getElementById('splashStatus');
+    const skipBtn = document.getElementById('splashSkipBtn');
+    if (!splash) return;
+
+    if (skipBtn) {
+        skipBtn.innerHTML = '<span>دخول النظام</span> <i class="fas fa-arrow-left"></i>';
+    }
+
+    let progress = 0;
+    const stages = [
+        { pct: 30, text: 'تهيئة قواعد البيانات والأمان...' },
+        { pct: 65, text: 'تحميل هوية Mastery Pharma Group...' },
+        { pct: 90, text: 'التحقق من صلاحيات المستخدم...' },
+        { pct: 100, text: 'مرحباً بك في Mastery Pharma!' }
+    ];
+
+    if (splashProgressInterval) clearInterval(splashProgressInterval);
+    splashProgressInterval = setInterval(() => {
+        progress += 2.5;
+        if (progress > 100) progress = 100;
+        if (progressBar) progressBar.style.width = progress + '%';
+        
+        const stage = stages.find(s => progress <= s.pct);
+        if (stage && statusText) statusText.textContent = stage.text;
+
+        if (progress >= 100) {
+            clearInterval(splashProgressInterval);
+            if (isManual) {
+                if (statusText) statusText.textContent = 'نظام Mastery Pharma جاهز للاستخدام';
+                if (skipBtn) skipBtn.innerHTML = '<span>إغلاق الافتتاحية</span> <i class="fas fa-times"></i>';
+            } else {
+                setTimeout(() => {
+                    dismissSplash();
+                }, 400);
+            }
+        }
+    }, 40);
+}
+
+function dismissSplash() {
+    const splash = document.getElementById('splashScreen');
+    if (!splash) return;
+    if (splashProgressInterval) clearInterval(splashProgressInterval);
+    splash.classList.add('fade-out');
+    setTimeout(() => {
+        splash.style.display = 'none';
+        splash.classList.remove('fade-out');
+    }, 550);
+}
+
+function showSplashScreen() {
+    const splash = document.getElementById('splashScreen');
+    if (!splash) return;
+    if (splashProgressInterval) clearInterval(splashProgressInterval);
+    splash.classList.remove('fade-out');
+    splash.style.display = 'flex';
+    void splash.offsetWidth;
+    const progressBar = document.getElementById('splashProgress');
+    if (progressBar) progressBar.style.width = '0%';
+    initSplashScreen(true);
+}
+
+function startHeroClock() {
+    function tick() {
+        const clockEl = document.getElementById('heroLiveClock');
+        const dateEl = document.getElementById('heroLiveDate');
+        const now = new Date();
+        if (clockEl) {
+            clockEl.textContent = now.toLocaleTimeString('ar-EG', { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+        }
+        if (dateEl) {
+            dateEl.textContent = now.toLocaleDateString('ar-EG', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' });
+        }
+    }
+    tick();
+    setInterval(tick, 1000);
+}
+
 // ===================== INITIALIZATION =====================
 document.addEventListener('DOMContentLoaded', () => {
+    initSplashScreen();
+    startHeroClock();
     const today = new Date().toISOString().split('T')[0];
     document.getElementById('pageDate').textContent = new Date().toLocaleDateString('ar-EG', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
     
